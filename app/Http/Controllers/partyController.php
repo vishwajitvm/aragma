@@ -205,7 +205,7 @@ class partyController extends Controller
         $startingdate = party::all('party_starting_date' ) ;
         $endingdate = party::all('party_ending_date' ) ;
         $currentDate = date('Y-m-d');
-        $partyData = party::latest()->get()->where('party_ending_time' , '>=' , $currentDate ) ;
+        $partyData = party::latest()->get()->where('party_ending_date' , '<=' , $currentDate ) ;
         return view('backend.party.view_party' , compact(['partyData'])) ;
 
     }
@@ -216,7 +216,7 @@ class partyController extends Controller
         $endingdate = party::all('party_ending_date' ) ;
         $currentDate = date('Y-m-d');
         
-        $partyData = party::latest()->get()->where('party_ending_time' , '<=' , $currentDate ) ;
+        $partyData = party::latest()->get()->where('party_ending_date' , '>=' , $currentDate ) ;
         return view('backend.party.view_party' , compact(['partyData'])) ;
 
     }

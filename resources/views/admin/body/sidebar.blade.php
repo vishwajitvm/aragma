@@ -85,13 +85,13 @@
           </a>
           <ul class="treeview-menu">
             <li><a href=" {{Route('partyrequest.partyview')}} "><i class="ti-more"></i>View User Requests</a></li>
-            <li><a href="mailbox_compose.html"><i class="ti-more"></i>Approved</a></li>
-            <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+            {{-- <li><a href="mailbox_compose.html"><i class="ti-more"></i>Approved</a></li>
+            <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li> --}}
           </ul>
         </li>
 
 
-        <li class="treeview">
+        {{-- <li class="treeview">
           <a href="#">
             <i data-feather="mail"></i> <span>Mailbox</span>
             <span class="pull-right-container">
@@ -103,41 +103,9 @@
             <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
             <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
           </ul>
-        </li>
-
-
-
-
-		
-         		  
-		 
-        <li class="header nav-small-cap">User Interface</li>
-		  
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="grid"></i>
-            <span>Components</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-            <li><a href="components_nestable.html"><i class="ti-more"></i>Nestable</a></li>
-            <li><a href="components_progress_bars.html"><i class="ti-more"></i>Progress Bars</a></li>
-          </ul>
-        </li>
-		
-		
-		  
-         
-		  			  
-		  
-				  		  
+        </li> --}}
 		  
 		<li class="header nav-small-cap">EXTRA</li>		  
-		  
-        
 		  
 		<li>
           <a href="{{Route('admin.logout')}}">
