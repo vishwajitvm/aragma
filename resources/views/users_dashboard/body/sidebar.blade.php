@@ -36,7 +36,7 @@
 		
         <li class="treeview {{ ($prefix == '/userprofile')?"active":"" }} ">
             <a href="#">
-              <i data-feather="mail"></i> <span>Manage User Profile</span>
+              <i data-feather="mail"></i> <span>Manage Your Profile</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
               </span>

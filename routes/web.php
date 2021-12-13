@@ -8,12 +8,16 @@ use App\Http\Controllers\completeProfleCOntroller;
 use App\Http\Controllers\userdashboardController ;
 use App\Http\Controllers\userProfileController ;
 use Illuminate\Support\Facades\Auth ;
-use App\Models\User ;
 use App\Http\Controllers\partyController ;
 use App\Http\Controllers\userPartyController ;
 use App\Http\Controllers\userPartyRequestController ;
 use App\Http\Controllers\partyRequestController ;
 use App\Http\Controllers\userMessageController ;
+
+use App\Models\party ;
+use App\Models\User ;
+use App\Models\userparty_request ;
+
 
 
 /*
@@ -66,7 +70,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('dashboard' ,
 function() {
-    return view('admin.index') ;
+    $userDataDashboard = User::all()->where('usertype' , 'user')->count() ;
+    $partyDataAdminDashboard = party::all()->count() ;
+    $partyRequestDataAdminDashboard = userparty_request::all()->count() ;
+    $userDataAllDataAdminDashBoard = User::latest()->where('usertype' ,"user")->take(4)->get() ;
+
+    return view('admin.index' , compact(['userDataDashboard' , 'partyDataAdminDashboard' , 'partyRequestDataAdminDashboard' , 'userDataAllDataAdminDashBoard'])) ;
 }
 )->name('dashboard')->middleware('admin') ;
 
