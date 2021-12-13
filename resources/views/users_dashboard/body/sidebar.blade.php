@@ -16,7 +16,9 @@
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
             {{-- <img src="{{asset('backend/images/logo/logo.png')}}" style="width: 40%" alt=""> --}}
-            <div class="logo"><b>a<span>r</span>a<span>gm</span>a</b></div>
+            {{-- <div class="logo"><b>A<span>r</span>a<span>g</span>ma</b></div> --}}
+            <div class="logo"><b><span></span><span>Aragma</span></b></div>
+
 					 </div>
 				</a>
 			</div>
@@ -73,7 +75,7 @@
           </ul>
       </li>
 
-      <li class="treeview">
+      {{-- <li class="treeview {{ ($prefix == '/usermessage')?"active":"" }} ">
         <a href="#">
           <i data-feather="mail"></i> <span>Chat Zone</span>
           <span class="pull-right-container">
@@ -81,14 +83,12 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Inbox</a></li>
-          <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
-          <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+          <li><a href="{{ route('usermessage.userchat') }}"><i class="ti-more"></i>Message Zone</a></li>
         </ul>
-      </li>
+      </li> --}}
 
 
-      <li class="treeview">
+      {{-- <li class="treeview">
         <a href="#">
           <i data-feather="mail"></i> <span>Mailbox</span>
           <span class="pull-right-container">
@@ -100,51 +100,7 @@
           <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
           <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
         </ul>
-      </li>
-
-
-
-
-  
-		
-		 
-        <li class="header nav-small-cap">User Interface</li>
-		  
-
-		  
-
-		  
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="map"></i>
-			<span>Map</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="map_google.html"><i class="ti-more"></i>Google Map</a></li>
-            <li><a href="map_vector.html"><i class="ti-more"></i>Vector Map</a></li>
-          </ul>
-        </li> 			  
-		  
-		<li class="treeview">
-          <a href="#">
-            <i data-feather="alert-triangle"></i>
-			<span>Authentication</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="auth_login.html"><i class="ti-more"></i>Login</a></li>
-			<li><a href="auth_register.html"><i class="ti-more"></i>Register</a></li>
-			<li><a href="auth_lockscreen.html"><i class="ti-more"></i>Lockscreen</a></li>
-			<li><a href="auth_user_pass.html"><i class="ti-more"></i>Password</a></li>
-			<li><a href="error_404.html"><i class="ti-more"></i>Error 404</a></li>
-			<li><a href="error_maintenance.html"><i class="ti-more"></i>Maintenance</a></li>	
-          </ul>
-        </li> 
+      </li> --}}
 		  
 		<li>
           <a href="{{Route('userdashboard.logout')}}">

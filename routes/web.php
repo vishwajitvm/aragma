@@ -12,7 +12,9 @@ use App\Models\User ;
 use App\Http\Controllers\partyController ;
 use App\Http\Controllers\userPartyController ;
 use App\Http\Controllers\userPartyRequestController ;
-USE App\Http\Controllers\partyRequestController ;
+use App\Http\Controllers\partyRequestController ;
+use App\Http\Controllers\userMessageController ;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -251,6 +253,14 @@ Route::prefix('userpartyrequest')->group( function() {
 
 
 }) ;
+
+//message zone here
+Route::prefix('usermessage')->group( function() {
+    //userchat route here
+    Route::get('/userchat' , [userMessageController::class , 'userMessageChatView'])->name('usermessage.userchat') ;
+
+
+});
 
 
 

@@ -32,7 +32,7 @@
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
 		  <!-- full Screen -->
-	      <li class="search-bar">		  
+	      {{-- <li class="search-bar">		  
 			  <div class="lookup lookup-circle lookup-right">
 			     <input type="text" name="s">
 			  </div>
@@ -101,7 +101,7 @@
 				  <a href="#">View all</a>
 			  </li>
 			</ul>
-		  </li>	
+		  </li>	 --}}
 		  @php
 			  $user = DB::table('users')->where('id',Auth::user()->id)->first() ;
 		  @endphp
@@ -113,16 +113,18 @@
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">
 				 <a class="dropdown-item" href="{{ Route('userprofile.view') }}"><i class="ti-user text-muted mr-2"></i> Profile</a>
-				 <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
-				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
+				 {{-- <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
+				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a> --}}
 				 <div class="dropdown-divider"></div>
 				 <a class="dropdown-item" href=" {{Route('userdashboard.logout')}} "><i class="ti-lock text-muted mr-2"></i> Logout</a>
 			  </li>
 			</ul>
           </li>	
 		  <li>
-              <a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
-			  	<i class="ti-settings"></i>
+              <a id="buttonaudio" title="Setting" class="waves-effect waves-light">
+				  <audio  autoplay src="{{asset('upload/music/bensound-moose.MP3')}}" type="audio/mpeg"></audio>
+				  {{-- <i class="glyphicon glyphicon-volume-off"></i> --}}
+				<i class="glyphicon glyphicon-volume-up"></i>
 			  </a>
           </li>
 			
@@ -130,3 +132,35 @@
       </div>
     </nav>
   </header>
+
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script id="rendered-js" >
+	  window.addEventListener("DOMContentLoaded", event => {
+		const audio = document.querySelector("audio");
+		audio.volume = 0.2;
+		audio.play();
+		});
+	const button = document.querySelector("#buttonaudio");
+	const icon = document.querySelector("#buttonaudio > i");
+	const audio = document.querySelector("audio");
+	
+	button.addEventListener("click", () => {
+	  if (audio.paused) {
+		audio.volume = 0.2;
+		audio.play();
+		icon.classList.remove('glyphicon glyphicon-volume-up');
+		icon.classList.add('glyphicon glyphicon-volume-off');
+	
+	  } else {
+		audio.pause();
+		icon.classList.remove('glyphicon glyphicon-volume-off');
+		icon.classList.add('glyphicon glyphicon-volume-up');
+	  }
+	  button.classList.add("fade");
+	});
+	//# sourceURL=pen.js
+		</script>
+
+		
+	
