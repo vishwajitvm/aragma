@@ -127,4 +127,23 @@ class UserController extends Controller
 
     }
 
+    //view of approval page here   approval_page[page]
+    public function UserApprovalRequestPageView($id) {
+        $data = User::find($id) ;
+        return view('backend.user.approval_page' , compact(['data'])) ;
+    }
+
+    //user approval update post here
+    public function UserApprovalRequestUpdate(Request $request, $id) {
+        $data = User::find($id) ;
+        $data->usertype = $request->usertype ;
+        $data->save() ;
+        $notification = array(
+            'message' => 'Request Updated Successfully',
+            'alert-type' => 'info'
+        ) ;
+        return redirect()->route('user.view')->with($notification) ;
+
+    }
+
 }

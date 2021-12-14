@@ -121,8 +121,8 @@
 			</ul>
           </li>	
 		  <li>
-              <a id="buttonaudio" title="Setting" class="waves-effect waves-light">
-				  <audio  autoplay src="{{asset('upload/music/bensound-moose.MP3')}}" type="audio/mpeg"></audio>
+              <a id="buttonaudio" title="Let's Dance" class="waves-effect waves-light">
+				  <audio  autoplay src="{{asset('upload/music/aragmand.MP3')}}" type="audio/mpeg"></audio>
 				  {{-- <i class="glyphicon glyphicon-volume-off"></i> --}}
 				<i class="glyphicon glyphicon-volume-up"></i>
 			  </a>

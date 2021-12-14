@@ -58,7 +58,26 @@
                               <td> {{$user->name}} </td>
                               <td> {{$user->email}} </td>
                               <td  style="{{($user->status =='active')?'color:green':'color:red' }} ; font-size:18px"> {{$user->status}} </td>
-                              <td style="{{($user->usertype ==null)?'color:white;background:red':'color:white;background:green' }} ; font-size:18px" > {{ $user->usertype== null?" Not Approved ": "Approved" }} </td>
+                              {{-- <td style="{{($user->usertype ==null)?'color:white;background:red':'color:white;background:green' }} ; font-size:18px" > {{ $user->usertype== null?" Not Approved ": "Approved" }} </td> --}}
+                              <td>
+                                <a href=" {{Route('users.userapprove',$user->id)}} "><span class="badge badge-lg badge-info" style="background: @if ($user->usertype ==null)
+                                  gray 
+                              @elseif($user->usertype == 'user')
+                                  green
+                              @else
+                                  red
+                              @endif "> 
+                                @if ($user->usertype ==null)
+                                    Not Approved User 
+                                @elseif($user->usertype == 'user')
+                                    Approved User
+                                @else
+                                    Admin
+                                @endif
+                                </span></a>
+
+                              </td>
+                              
                               <td>
                                 <!--button here-->
                                 <a class="btn btn-success" href=" {{Route('users.viewuserprofile',$user->id)}} ">View User Profile</a>

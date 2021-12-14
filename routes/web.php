@@ -112,7 +112,12 @@ Route::prefix('users')->group(function() {
     //manage inacive users
     Route::get('/inactiveusers' , [UserController::class , 'UserInactiveUsers'])->name('user.inactiveusers') ; 
 
-    
+    //view user approve page here
+    Route::get('/userapprove/{id}' , [UserController::class , 'UserApprovalRequestPageView'])->name('users.userapprove') ;   
+
+    //post the data for approving the user userapprovalupdate
+    Route::post('/userapprovalupdate/{id}' , [UserController::class , 'UserApprovalRequestUpdate'])->name('users.userapprovalupdate') ;   
+
 
 }) ;
 
@@ -205,7 +210,14 @@ Route::prefix('partyrequest')->group(function() {
 
 //loading user index page after login as user
 Route::get('userdashboard', function () {
-    return view('users_dashboard.index');
+    $currentDate = date('Y-m-d');
+    $idData = Auth::user() ;
+    $userDashboardUpcomingParty = party::latest()->get()->where('party_ending_date' , '<=' , $currentDate )->count()  ;
+    $userDashboardMissedParty = party::latest()->get()->where('party_ending_date' , '>=' , $currentDate )->count()  ;
+    $totalRequestYouMade = userparty_request::all()->where('user_party_request_username' , $idData->name)->count() ;
+    $UserDashboardPartyData = party::latest()->where('party_status' ,'approve')->take(5)->get() ;
+    return view('users_dashboard.index' , compact(['userDashboardUpcomingParty' , 'userDashboardMissedParty' , 'totalRequestYouMade' , 'UserDashboardPartyData']));
+
 })->name('userdashboard');
 
 Route::view('calendar' , 'users_dashboard.body.calendar')->name('calendar') ;
