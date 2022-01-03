@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href=" {{asset('backend/images/faviconnew.png')}} ">
-    <title>Aragma - Vishwa Panel</title>
+    <title>Vishwa - Admin Panel</title>
     
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{asset('backend/css/vendors_css.css')}}">
