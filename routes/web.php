@@ -17,6 +17,7 @@ use App\Http\Controllers\userMessageController ;
 use App\Models\party ;
 use App\Models\User ;
 use App\Models\userparty_request ;
+use Illuminate\Support\Facades\Artisan;
 
 
 
@@ -308,6 +309,20 @@ Route::prefix('completeprofile')->group( function() {
 
 }) ;
 
+
+
+//************************************************************ *//
+///////////////Finally Website Route here[ARAGMA]////////////////
+//********************************************************* *//
+
+
+
+Route::get('/cache' , function() {
+    Artisan::Call('cache:clear') ;
+}) ;
+Route::get('/storage' , function() {
+    Artisan::Call('storage:link') ;
+}) ;
 
 
 
