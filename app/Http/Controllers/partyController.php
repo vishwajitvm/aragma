@@ -54,7 +54,7 @@ class partyController extends Controller
                 $upload_path = 'upload/party_gallary_image/' ;  //path here
 
                 $multi_image_url = $upload_path.$multi_image_full_name ; //
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/party_gallary_image'),$multi_image_full_name)  ;
                 $party_gallary_images[] = $multi_image_url ;
                 $dataDB->party_gallary_images = implode('|' , $party_gallary_images) ;
 
@@ -72,7 +72,7 @@ class partyController extends Controller
                 $upload_path = 'upload/party_gallary_videos/' ;
 
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/party_gallary_videos/'),$multi_image_full_name)  ;
                 $party_gallary_videos[] = $multi_image_url ;
                 $dataDB->party_gallary_videos = implode('|' , $party_gallary_videos) ;
 

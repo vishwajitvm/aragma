@@ -14,7 +14,7 @@ class userPartyController extends Controller
         $endingdate = party::all('party_ending_date' ) ;
         $host = User::all('name') ;
         $currentDate = date('Y-m-d');
-        $partyData = party::latest()->get()->where('party_status' , 'approve')->where('party_ending_date' , '>=' , $currentDate) ;
+        $partyData = party::latest()->where('party_starting_date' , '>=' , $currentDate)->get() ;
         return view('users_dashboard.partys.view_upcommingparty' , compact(['partyData' , 'host' ])) ;
     }
 
